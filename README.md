@@ -1,3 +1,40 @@
+![LaraPoll demo](laraPoll.gif)
+## Database Configuration for sqlite users
+
+- Remove DB_DATABASE=... from .env and use the path in the config/database.php
+- set 'default' => env('DB_CONNECTION', 'sqlite'),
+
+	make sure this exist
+	
+	'connections' => [
+
+        'sqlite' => [
+            'driver' => 'sqlite',
+            'url' => env('DATABASE_URL'),
+            'database' => env('DB_DATABASE', database_path('database.sqlite')),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+		...
+		
+- move your database.sqlite to 'database' folder in your app root folder.
+
+if you run into any problem concerning connecting to database, run the following commands
+
+- php artisan config:cache
+
+- php artisan config:clear
+
+- restart server: php artisan server
+
+
+if you want to use DB_DATABASE
+
+In the .env file use absolute  path 
+e.g
+DB_DATABASE=C:\xampp\htdocs\larapoll\database\database.sqlite
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
